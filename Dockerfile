@@ -123,11 +123,11 @@ RUN mkdir /opt/JSplice && \
     cd /opt/JSplice && \
     python3 setup.py install
 
-# RUN chmod -R 777 /opt
+ RUN chmod -R 777 /opt
 # Install BWA
-#RUN conda install -c bioconda bwa=0.7.15 plink2
+RUN conda install -c bioconda bwa=0.7.15 plink2
 
 # Install PLINK2
-#RUN conda install -c bioconda plink2
+RUN conda install -c bioconda plink2
 
 USER $NB_UID
