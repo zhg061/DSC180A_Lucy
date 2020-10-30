@@ -48,6 +48,11 @@ RUN apt-get install --yes ncurses-dev libbz2-dev liblzma-dev && \
     ./configure && \
     make && \
     make install
+# install aria2, nmap, traceroute
+RUN apt-get install aria2
+RUN apt-get install nmap
+RUN apt-get install traceroute
+
 
 # install htslib
 RUN apt-get install --yes ncurses-dev libbz2-dev liblzma-dev && \
@@ -104,6 +109,9 @@ RUN wget https://github.com/pachterlab/kallisto/releases/download/v0.42.4/kallis
 # HTSeq
 RUN pip install HTSeq
 
+# Babypandas
+RUN pip install babypandas
+
 # VarScan
 RUN mkdir /opt/varscan && \
     wget http://downloads.sourceforge.net/project/varscan/VarScan.v2.3.6.jar -P /opt/varscan
@@ -129,5 +137,8 @@ RUN conda install -c bioconda bwa=0.7.15 plink2
 
 # Install PLINK2
 RUN conda install -c bioconda plink2
+
+# Install geopandas
+RUN conda install geopandas
 
 USER $NB_UID
